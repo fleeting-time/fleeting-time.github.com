@@ -114,21 +114,21 @@
         var oSRtwo=$('#ski_rtwo');
         //导航条positionq
         var oNavTopPosition=$('#navbox');
-        var oSKBoxTop=$('#skillbox').offset().top-$(window).height();
-        $(window).scroll(function(){
-            var scrollTop=$(document).scrollTop();
-            if(scrollTop>=50)
-            {
-                //oNavTopPosition.css({position:'fixed',left:0,top:0})
-            }
-            if(scrollTop>=oSKBoxTop)
-            {
-                oSLone.animate({left:0,opacity:1})
-                oSLtwo.animate({top:0,opacity:1})
-                oSRone.animate({right:0,opacity:1})
-                oSRtwo.animate({bottom:0,opacity:1})
-            }
-        })
+        // var oSKBoxTop=$('#skillbox').offset().top-($(window).height());
+        // $(window).scroll(function(){
+        //     var scrollTop=$(document).scrollTop();
+        //     if(scrollTop>=50)
+        //     {
+        //         //oNavTopPosition.css({position:'fixed',left:0,top:0})
+        //     }
+        //     if(scrollTop>=oSKBoxTop)
+        //     {
+        //         oSLone.animate({left:0,opacity:1})
+        //         oSLtwo.animate({top:0,opacity:1})
+        //         oSRone.animate({right:0,opacity:1})
+        //         oSRtwo.animate({bottom:0,opacity:1})
+        //     }
+        // })
         //时钟
         var oDiv=document.querySelector('.timebox');
             var oH=document.querySelector('.hour');
@@ -165,5 +165,50 @@
             // },100)
             //  magicBox.style.width=width+'px';
             //  magicBox.style.height=height+'px'; 
-          
+         
+            
     })
+
+  window.onload=function(){
+        var aBtn=document.querySelectorAll('.video_box li');
+        var aV=document.querySelector('#video');
+
+        aBtn[0].onclick=function(){
+                aV.play();  
+        };
+
+        aBtn[1].onclick=function(){
+                aV.pause();  
+        };
+
+         aBtn[2].onclick=function(){
+                aV.currentTime-=10; 
+        };
+        aBtn[3].onclick=function(){
+                aV.currentTime+=10; 
+        };
+        aBtn[4].onclick=function(){
+                aV.webkitRequestFullScreen();
+        }
+        aBtn[5].onclick=function(){
+                aV.volume+=0.1;
+        }
+        aBtn[7].onclick=function(){
+                aV.volume-=0.1;
+        }
+
+        
+        var bFlag=true;
+        aBtn[8].onclick=function(){
+            if(bFlag)
+            {
+                 aV.muted=true;
+            }
+            else{
+                 aV.muted=false;
+            }
+               bFlag=!bFlag;
+            }
+            
+        
+    };

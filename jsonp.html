@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+    *{ margin: 0; padding:0; list-style: none; }
+    div{ width: 400px; height: 30px; margin: 100px auto; }
+    input{ width: 100%; height: 30px; font-size: 18px;  display: block;}
+    ul{ border: 1px solid #ccc; width: 100%; }
+    li{ padding: 4px; }
+    </style>
+    <script src="js/jsonp.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+         //百度
+            (function(){
+              var oText=document.getElementById('text');
+                var oUl=document.getElementById('ul1');
+                oText.onkeyup=function(){
+                    jsonp({
+                        url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+                        data:{'wd':this.value},
+                        success:function(json)
+                        {
+                            var arr=json.s;
+                            oUl.innerHTML='';
+                            for(var i=0;i<arr.length;i++)
+                            {
+                                var oLi=document.createElement('li');
+                                oLi.innerHTML=arr[i];
+                                oUl.appendChild(oLi)
+                            }
+                        }
+                    })
+                }  
+            })()
+
+
+         //360有道
+            // (function(){
+        //     var oText=document.getElementById('text2');
+        //     var oUl=document.getElementById('ul2');
+        //     oText.onkeyup=function()
+        //     {
+
+        //         jsonp({
+        //             url:'http://sug.so.360.cn/suggest',
+        //             data:{'test':5,'word':this.value},
+        //             cbName:'callback',
+        //             success:function(json)
+        //             {
+        //                 alert(JSON.stringify(json))
+        //             }
+        //         })
+        //     }
+        //  })()
+
+             var oText2=document.getElementById('text2');
+            var oUl2=document.getElementById('ul2');
+            oText2.onkeyup=function()
+            {
+
+                jsonp({
+                    url:'http://sug.so.360.cn/suggest',
+                    data:{'test':5,'word':this.value},
+                    cbName:'callback',
+                    success:function(json)
+                    {
+                         var arr=json.s;
+                        oUl2.innerHTML='';
+                        for(var i=0;i<arr.length;i++)
+                        {
+                            var oLi2=document.createElement('li');
+                            oLi2.innerHTML=arr[i];
+                            oUl2.appendChild(oLi2)
+                        }
+                    }
+                })
+            }
+
+
+        //中搜
+       
+             var oText3=document.getElementById('text3');
+             var oUl3=document.getElementById('ul3');
+
+             oText3.onkeyup=function()
+             {
+                jsonp({
+                    url:'http://tip.zhongsou.com/ctip',
+                    data:{'w':this.value},
+                    cbName:'callback',
+                    success:function(json)
+                    {
+                        alert(JSON.stringify(json))
+                        var arr=json.s;
+                        oUl3.innerHTML='';
+                        for(var i=0;i<arr.length;i++)
+                        {
+                            var oLi3=document.createElement('li');
+                            oLi3.innerHTML=arr[i];
+                            oUl3.appendChild(oLi3)
+                       }
+                    }
+                })
+             }
+       
+        //淘宝
+          var oText4=document.getElementById('text4');
+          var oUl4=document.getElementById('ul4');
+
+          oText4.onkeyup=function()
+          {
+             jsonp({
+                url:'https://suggest.taobao.com/sug',
+                data:{'q':this.value},
+                cbName:'callback',
+                success:function(json)
+                {
+                   // alert(JSON.stringify(json))
+                    var arr=json.result;
+                    oUl4.innerHTML='';
+                    for(var i=0;i<arr.length;i++)
+                    {
+                        var oLi4=document.createElement('li');
+                        oLi4.innerHTML=arr[i];
+                        oUl4.appendChild(oLi4)
+                   }
+                }
+             })
+          }
+
+ }    
+       
+    </script>
+</head>
+<div>
+    <input type="text" id="text" placeholder="baidu"></input>
+    <ul  id="ul1">
+        
+    </ul>
+</div>
+
+<div>
+    <input type="text" id="text2" placeholder="360"></input>
+    <ul  id="ul2">
+        
+    </ul>
+</div>
+
+<div>
+    <input type="text" id="text3" placeholder="zhongsou"></input>
+    <ul  id="ul3">
+        
+    </ul>
+</div>
+
+
+<div>
+    <input type="text" id="text4" placeholder="taobao"></input>
+    <ul  id="ul4">
+        
+    </ul>
+</div>
+</body>
+</html>

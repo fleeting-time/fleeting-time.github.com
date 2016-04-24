@@ -197,3 +197,68 @@ body,html{width: 100%; height: 100%;}
 
  /*footer begin*/
  .footer_box{height: 200px; background:#000;}
+
+
+ /*视频*/
+ .play{
+    background: url(../img/play.gif) no-repeat;
+    background-size:cover;
+   }
+
+    .pause{
+    background: url(../img/pause.gif) no-repeat;
+    background-size:cover;
+   }
+   .currentajian{
+     background: url(../img/currenttimef.gif) no-repeat;
+     background-size:cover;
+   }
+   .currentaadd{
+     background: url(../img/currenttimes.gif) no-repeat;
+     background-size:cover;
+   }
+   .big{
+    background: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+   }
+   .vocadd{
+    background: url(../img/volumejian.gif) no-repeat;
+     background-size:cover;
+   }
+    .vocjian{
+    background: url(../img/volumeadd.gif) no-repeat;
+     background-size:cover;
+   }
+    .voce{
+    background: url(../img/volume.gif) no-repeat;
+     background-size:cover;
+   }
+   .volclose{
+      background: url(../img/volclose.gif) no-repeat;
+     background-size:cover;
+   }
+
+   .video_box li{
+     float: left;
+     list-style: none;
+     width: 40px;
+     height: 40px;
+     background-size:cover;
+     transition: 0.4s all ease;
+     margin: 0 6px;
+   }
+  .video_box ul li:active{
+    transform: translate(0,4px);
+  }
+  .video_box ul{
+    margin: 0 auto;
+    width: 500px;
+  }
+     .video_box{
+        margin:0 auto;
+        margin-top: 40px;
+        width: 600px;
+        cursor:pointer;
+     }

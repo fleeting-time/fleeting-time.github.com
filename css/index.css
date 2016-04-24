@@ -33,8 +33,9 @@
     }
     .header-toggle{
         height:650px;
-        /*width: 1200px*/
+        width: 1400px;
         position: relative;
+        margin: 0 auto;
         overflow: hidden;
     }
     .header-toggle div{
